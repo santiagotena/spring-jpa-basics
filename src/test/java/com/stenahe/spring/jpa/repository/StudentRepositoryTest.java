@@ -85,4 +85,31 @@ class StudentRepositoryTest {
         System.out.println("students = " + students);
     }
 
+    @Test
+    public void printStudentByFirstNameAndLastName() {
+        Student student =
+                studentRepository.findByFirstNameAndLastName("Santiago", "Tena");
+        System.out.println(student);
+    }
+
+    @Test
+    public void printGetStudentByEmailAddress() {
+        Student student =
+                studentRepository.getStudentsByEmailAddress("santiago@gmail.com");
+        System.out.println(student);
+    }
+
+    @Test
+    public void printGetStudentFirstNameByEmailAddress() {
+        String studentName =
+                studentRepository.getStudentFirstNameByEmailAddress("santiago@gmail.com");
+        System.out.println(studentName);
+    }
+
+    @Test
+    public void printGetStudentByEmailAddressNative() {
+        Student studentName =
+                studentRepository.getStudentByEmailAddressNative("santiago@gmail.com");
+        System.out.println(studentName);
+    }
 }
