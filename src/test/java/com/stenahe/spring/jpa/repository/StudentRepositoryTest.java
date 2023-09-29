@@ -1,5 +1,6 @@
 package com.stenahe.spring.jpa.repository;
 
+import com.stenahe.spring.jpa.entity.Guardian;
 import com.stenahe.spring.jpa.entity.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,31 @@ class StudentRepositoryTest {
     @Test
     public void saveStudent() {
         Student student = Student.builder()
-                .emailId("santiago@gmail.com")
                 .firstName("Santiago")
                 .lastName("Tena")
-                .guardianName("Gaspar")
-                .guardianEmail("gaspar@gmail.com")
-                .guardianMobile("12345")
+                .emailId("santiago@gmail.com")
+//                .guardianName("Gaspar")
+//                .guardianEmail("gaspar@gmail.com")
+//                .guardianMobile("12345")
                 .build();
+        studentRepository.save(student);
+    }
+
+    @Test
+    public void saveStudentWithGuardian() {
+        Guardian guardian = Guardian.builder()
+                .name("Bob")
+                .email("bob@gmail.com")
+                .mobileNumber("54321")
+                .build();
+
+        Student student = Student.builder()
+                .firstName("Max")
+                .lastName("Mustermann")
+                .emailId("max@gmail.com")
+                .guardian(guardian)
+                .build();
+
         studentRepository.save(student);
     }
 
