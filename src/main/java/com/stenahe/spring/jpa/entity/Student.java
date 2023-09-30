@@ -7,10 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 @Builder
+
 @Table(
         name = "tbl_student",
         uniqueConstraints = @UniqueConstraint(
